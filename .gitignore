@@ -39,3 +39,13 @@
 
 # debug information files
 *.dwo
+
+# Visual Studio files
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+x64/
+Debug/
+Release/

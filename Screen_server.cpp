@@ -9,7 +9,8 @@ const std::vector<std::wstring> myCode = {
     L"for(int i=0; i<100; ++i)",
     L"if (status == OK) break;",
     L"template <typename T>",
-    L"while(!window.closed())"
+    L"while(!window.closed())",
+    L"void quickSort(vector<int>& arr,...)",   // Быстрая сортировка (C++)
 };
 
 struct Drop {

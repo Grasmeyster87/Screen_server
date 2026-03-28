@@ -15,6 +15,7 @@ const std::vector<std::wstring> myCode = {
     L"function isPrime(n){...}",                // JS Уникальная проверка на простое число (JS)
     L"auto evenFilter = [](const vector<int>& v){...}", // C++ Лямбда-выражение для фильтрации (C++)
     L"def fibonacci(n): yield ...",             // Python # Генератор Фибоначчи (Python)
+    L"async function fetchData(url){...}"       // JS Асинхронная функция с await (JS)
 };
 
 struct Drop {

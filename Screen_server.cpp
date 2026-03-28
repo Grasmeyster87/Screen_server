@@ -12,6 +12,8 @@ const std::vector<std::wstring> myCode = {
     L"while(!window.closed())",
     L"void quickSort(vector<int>& arr,...)",   // Быстрая сортировка (C++)
     L"def is_palindrome(s): return s==s[::-1]", // Python Проверка палиндрома
+    L"function isPrime(n){...}",                // JS Уникальная проверка на простое число (JS)
+
 };
 
 struct Drop {

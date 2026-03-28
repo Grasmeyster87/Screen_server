@@ -13,7 +13,7 @@ const std::vector<std::wstring> myCode = {
     L"void quickSort(vector<int>& arr,...)",   // Быстрая сортировка (C++)
     L"def is_palindrome(s): return s==s[::-1]", // Python Проверка палиндрома
     L"function isPrime(n){...}",                // JS Уникальная проверка на простое число (JS)
-
+    L"auto evenFilter = [](const vector<int>& v){...}", // C++ Лямбда-выражение для фильтрации (C++)
 };
 
 struct Drop {

@@ -14,6 +14,7 @@ const std::vector<std::wstring> myCode = {
     L"def is_palindrome(s): return s==s[::-1]", // Python Проверка палиндрома
     L"function isPrime(n){...}",                // JS Уникальная проверка на простое число (JS)
     L"auto evenFilter = [](const vector<int>& v){...}", // C++ Лямбда-выражение для фильтрации (C++)
+    L"def fibonacci(n): yield ...",             // Python # Генератор Фибоначчи (Python)
 };
 
 struct Drop {

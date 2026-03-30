@@ -3,8 +3,8 @@
 #include <string>
 
 // Список твоїх шматків коду
-const std::vector<std::wstring> myCode = {
-    L"int main() {",
+const std::vector<std::vector<std::wstring>> myCodeBlocks = { 
+    { L"int main() {",
     L"std::cout << \"Hello Matrix\";",
     L"for(int i=0; i<100; ++i)",
     L"if (status == OK) break;",
@@ -16,12 +16,71 @@ const std::vector<std::wstring> myCode = {
     L"auto evenFilter = [](const vector<int>& v){...}", // C++ Лямбда-выражение для фильтрации (C++)
     L"def fibonacci(n): yield ...",             // Python # Генератор Фибоначчи (Python)
     L"async function fetchData(url){...}"       // JS Асинхронная функция с await (JS)
+},
+   // Генератор Фибоначчи(Python)
+    {
+        L"def fibonacci(n):",
+        L"    a, b = 0, 1",
+        L"    for _ in range(n):",
+        L"        yield a",
+        L"        a, b = b, a + b"
+     },
+
+};
+/*
+# Проверка палиндрома (Python)
+// Быстрая сортировка (C++)
+void quickSort(std::vector<int>& arr, int left, int right) {
+    int i = left, j = right;
+    int pivot = arr[(left + right) / 2];
+    while (i <= j) {
+        while (arr[i] < pivot) i++;
+        while (arr[j] > pivot) j--;
+        if (i <= j) std::swap(arr[i++], arr[j--]);
+    }
+    if (left < j) quickSort(arr, left, j);
+    if (i < right) quickSort(arr, i, right);
+}
+
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
+
+// Уникальная проверка на простое число (JS)
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+// Лямбда-выражение для фильтрации (C++)
+auto evenFilter = [](const std::vector<int>& v) {
+    std::vector<int> res;
+    for (auto x : v) if (x % 2 == 0) res.push_back(x);
+    return res;
 };
 
+# Генератор Фибоначчи (Python)
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+
+// Асинхронная функция с await (JS)
+async function fetchData(url) {
+    const response = await fetch(url);
+    return await response.json();
+}
+*/
+
+// 🔹 Структура Drop теперь хранит блок строк
 struct Drop {
     int x, y;
     int speed;
-    std::wstring text;
+    std::vector<std::wstring> textBlock;
 };
 
 std::vector<Drop> drops;
@@ -33,7 +92,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         // Ініціалізуємо "краплі" коду по всій ширині екрану
         int screenWidth = GetSystemMetrics(SM_CXSCREEN);
         for (int i = 0; i < 30; i++) { // 30 потоків коду
-            drops.push_back({ rand() % screenWidth, rand() % 800, 5 + rand() % 15, myCode[rand() % myCode.size()] });
+            drops.push_back({ rand() % screenWidth, rand() % 800,
+                              5 + rand() % 15,
+                              myCodeBlocks[rand() % myCodeBlocks.size()] });
         }
         // Оновлення кожні 30 мс
         timerID = SetTimer(hWnd, 1, 30, NULL);
@@ -46,7 +107,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             if (drop.y > GetSystemMetrics(SM_CYSCREEN)) {
                 drop.y = -20;
                 drop.x = rand() % GetSystemMetrics(SM_CXSCREEN);
-                drop.text = myCode[rand() % myCode.size()];
+                drop.textBlock = myCodeBlocks[rand() % myCodeBlocks.size()];
             }
         }
         InvalidateRect(hWnd, NULL, TRUE); // Перемалювати
@@ -63,8 +124,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         SetBkMode(hdc, TRANSPARENT);
         SetTextColor(hdc, RGB(0, 255, 70)); // Матричний зелений
 
+        // 🔹 Выводим многострочные блоки построчно
         for (const auto& drop : drops) {
-            TextOutW(hdc, drop.x, drop.y, drop.text.c_str(), (int)drop.text.length());
+            int offset = 0;
+            for (const auto& line : drop.textBlock) {
+                TextOutW(hdc, drop.x, drop.y + offset, line.c_str(), (int)line.length());
+                offset += 16; // расстояние между строками
+            }
         }
 
         EndPaint(hWnd, &ps);

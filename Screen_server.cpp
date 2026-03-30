@@ -25,6 +25,11 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
         L"        yield a",
         L"        a, b = b, a + b"
      },
+    // Асинхронная функция с await (JS)
+    {L"async function fetchData(url) {",
+     L"    const response = await fetch(url);",
+     L"    return await response.json();",
+     L"}"},
 
 };
 /*

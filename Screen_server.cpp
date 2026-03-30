@@ -31,6 +31,19 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    return await response.json();",
      L"}"},
 
+    // Быстрая сортировка (C++)
+    {L"void quickSort(std::vector<int>& arr, int left, int right) {",
+     L"    int i = left, j = right;",
+     L"    int pivot = arr[(left + right) / 2];",
+     L"    while (i <= j) {",
+     L"        while (arr[i] < pivot) i++;",
+     L"        while (arr[j] > pivot) j--;",
+     L"        if (i <= j) std::swap(arr[i++], arr[j--]);",
+     L"    }",
+     L"    if (left < j) quickSort(arr, left, j);",
+     L"    if (i < right) quickSort(arr, i, right);",
+     L"}"},
+
 };
 /*
 # Проверка палиндрома (Python)

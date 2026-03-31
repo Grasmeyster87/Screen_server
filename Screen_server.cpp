@@ -80,6 +80,22 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"    visited.add(node)",
     L"    for nei in graph[node]:",
     L"        dfs(nei, visited, graph)"},
+
+
+    // 🔹 Динамическое программирование (рюкзак)
+   {
+    L"// Knapsack DP (C++)",
+    L"int knapsack(vector<int>& w, vector<int>& v, int W) {",
+    L"    int n = w.size();",
+    L"    vector<vector<int>> dp(n+1, vector<int>(W+1, 0));",
+    L"    for (int i = 1; i <= n; i++)",
+    L"        for (int j = 0; j <= W; j++)",
+    L"            if (w[i-1] <= j)",
+    L"                dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i-1]] + v[i-1]);",
+    L"            else",
+    L"                dp[i][j] = dp[i-1][j];",
+    L"    return dp[n][W];",
+    L"}"},
 };
 /*
 # Проверка палиндрома (Python)

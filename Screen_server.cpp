@@ -107,6 +107,20 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"        else lps[i++] = 0;",
     L"    }",
     L"}"},
+
+    // 🔹 Дейкстра (кратчайший путь)
+    {L"// Dijkstra (Python)",
+    L"import heapq",
+    L"def dijkstra(graph, start):",
+    L"    dist = {v: float('inf') for v in graph}",
+    L"    dist[start] = 0",
+    L"    pq = [(0, start)]",
+    L"    while pq:",
+    L"        d, node = heapq.heappop(pq)",
+    L"        for nei, w in graph[node]:",
+    L"            if d + w < dist[nei]:",
+    L"                dist[nei] = d + w",
+    L"                heapq.heappush(pq, (dist[nei], nei))"}
 };
 /*
 # Проверка палиндрома (Python)

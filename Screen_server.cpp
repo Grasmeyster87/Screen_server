@@ -56,6 +56,22 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"    }",
     L"    return -1;",
     L"}"},
+
+    // 🔹 BFS (поиск в ширину, графы)
+   {L"// BFS Graph Traversal (JS)",
+    L"function bfs(graph, start) {",
+    L"    let queue = [start];",
+    L"    let visited = new Set([start]);",
+    L"    while (queue.length) {",
+    L"        let node = queue.shift();",
+    L"        for (let n of graph[node]) {",
+    L"            if (!visited.has(n)) {",
+    L"                visited.add(n);",
+    L"                queue.push(n);",
+    L"            }",
+    L"        }",
+    L"    }",
+    L"}"},
 };
 /*
 # Проверка палиндрома (Python)

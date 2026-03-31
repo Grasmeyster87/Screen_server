@@ -72,6 +72,14 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"        }",
     L"    }",
     L"}"},
+
+    // 🔹 DFS (рекурсивный)
+    {L"// DFS Recursive (Python)",
+    L"def dfs(node, visited, graph):",
+    L"    if node in visited: return",
+    L"    visited.add(node)",
+    L"    for nei in graph[node]:",
+    L"        dfs(nei, visited, graph)"},
 };
 /*
 # Проверка палиндрома (Python)

@@ -44,6 +44,18 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    if (i < right) quickSort(arr, i, right);",
      L"}"},
 
+    // 🔹 Бинарный поиск (C++)
+   {L"// Binary Search (C++)",
+    L"int binarySearch(const std::vector<int>& arr, int target) {",
+    L"    int left = 0, right = arr.size() - 1;",
+    L"    while (left <= right) {",
+    L"        int mid = left + (right - left) / 2;",
+    L"        if (arr[mid] == target) return mid;",
+    L"        else if (arr[mid] < target) left = mid + 1;",
+    L"        else right = mid - 1;",
+    L"    }",
+    L"    return -1;",
+    L"}"},
 };
 /*
 # Проверка палиндрома (Python)

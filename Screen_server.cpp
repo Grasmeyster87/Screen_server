@@ -96,6 +96,17 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"                dp[i][j] = dp[i-1][j];",
     L"    return dp[n][W];",
     L"}"},
+
+    // 🔹 Алгоритм Кнута-Морриса-Пратта (поиск строки)
+    {L"// KMP String Search (JS)",
+    L"function kmp(text, pattern) {",
+    L"    let lps = new Array(pattern.length).fill(0);",
+    L"    for (let i = 1, j = 0; i < pattern.length;) {",
+    L"        if (pattern[i] === pattern[j]) lps[i++] = ++j;",
+    L"        else if (j) j = lps[j-1];",
+    L"        else lps[i++] = 0;",
+    L"    }",
+    L"}"},
 };
 /*
 # Проверка палиндрома (Python)

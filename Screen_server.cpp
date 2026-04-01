@@ -143,6 +143,17 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    }",
      L"    return max;",
      L"}" },
+
+   // Union-Find (Python)
+   { L"class DSU:",
+    L"    def __init__(self, n):",
+    L"        self.p = list(range(n))",
+    L"    def find(self, x):",
+    L"        if self.p[x] != x:",
+    L"            self.p[x] = self.find(self.p[x])",
+    L"        return self.p[x]",
+    L"    def union(self, a, b):",
+    L"        self.p[self.find(a)] = self.find(b)" },
 };
 /*
 # Проверка палиндрома (Python)

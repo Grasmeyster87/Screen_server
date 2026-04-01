@@ -120,7 +120,17 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"        for nei, w in graph[node]:",
     L"            if d + w < dist[nei]:",
     L"                dist[nei] = d + w",
-    L"                heapq.heappush(pq, (dist[nei], nei))"}
+    L"                heapq.heappush(pq, (dist[nei], nei))"},
+
+    // Merge Sort (C++)
+    {L"void mergeSort(vector<int>& arr) {",
+     L"    if (arr.size() <= 1) return;",
+     L"    int mid = arr.size() / 2;",
+     L"    vector<int> left(arr.begin(), arr.begin()+mid);",
+     L"    vector<int> right(arr.begin()+mid, arr.end());",
+     L"    mergeSort(left); mergeSort(right);",
+     L"    merge(left, right, arr);",
+     L"}"},
 };
 /*
 # Проверка палиндрома (Python)

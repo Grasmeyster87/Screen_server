@@ -131,6 +131,18 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    mergeSort(left); mergeSort(right);",
      L"    merge(left, right, arr);",
      L"}"},
+
+     // Sliding Window (JS)
+    { L"function maxSum(arr, k) {",
+     L"    let sum = 0;",
+     L"    for (let i = 0; i < k; i++) sum += arr[i];",
+     L"    let max = sum;",
+     L"    for (let i = k; i < arr.length; i++) {",
+     L"        sum += arr[i] - arr[i-k];",
+     L"        max = Math.max(max, sum);",
+     L"    }",
+     L"    return max;",
+     L"}" },
 };
 /*
 # Проверка палиндрома (Python)

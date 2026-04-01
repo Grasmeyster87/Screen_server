@@ -154,6 +154,18 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"        return self.p[x]",
     L"    def union(self, a, b):",
     L"        self.p[self.find(a)] = self.find(b)" },
+
+    // Two Pointers (C++)
+    { L"int twoSum(vector<int>& a, int target) {",
+     L"    int l = 0, r = a.size()-1;",
+     L"    while (l < r) {",
+     L"        int s = a[l] + a[r];",
+     L"        if (s == target) return 1;",
+     L"        else if (s < target) l++;",
+     L"        else r--;",
+     L"    }",
+     L"    return 0;",
+     L"}" },
 };
 /*
 # Проверка палиндрома (Python)

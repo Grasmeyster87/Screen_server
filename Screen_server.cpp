@@ -235,6 +235,23 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    }",
      L"    return max;",
      L"}" },
+
+     // Backtracking Permutations (Python)
+    { L"def permute(nums):",
+     L"    res = []",
+     L"    def backtrack(path, used):",
+     L"        if len(path) == len(nums):",
+     L"            res.append(path[:])",
+     L"            return",
+     L"        for i in range(len(nums)):",
+     L"            if used[i]: continue",
+     L"            used[i] = True",
+     L"            path.append(nums[i])",
+     L"            backtrack(path, used)",
+     L"            path.pop()",
+     L"            used[i] = False",
+     L"    backtrack([], [False]*len(nums))",
+     L"    return res" },
 };
 /*
 # Проверка палиндрома (Python)

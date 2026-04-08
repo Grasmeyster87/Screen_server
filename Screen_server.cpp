@@ -212,6 +212,12 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"        }",
      L"    }",
      L"};" },
+
+     // GCD Euclid (Python)
+    { L"def gcd(a, b):",
+     L"    while b:",
+     L"        a, b = b, a % b",
+     L"    return a" },
 };
 /*
 # Проверка палиндрома (Python)

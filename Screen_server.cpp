@@ -194,6 +194,24 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"        }",
      L"    }",
      L"}" },
+
+     // Segment Tree (C++)
+    { L"struct SegTree {",
+     L"    vector<int> t;",
+     L"    int n;",
+     L"",
+     L"    SegTree(int n): n(n) { t.resize(4*n); }",
+     L"",
+     L"    void build(vector<int>& a, int v, int l, int r) {",
+     L"        if (l == r) t[v] = a[l];",
+     L"        else {",
+     L"            int m = (l + r) / 2;",
+     L"            build(a, v*2, l, m);",
+     L"            build(a, v*2+1, m+1, r);",
+     L"            t[v] = t[v*2] + t[v*2+1];",
+     L"        }",
+     L"    }",
+     L"};" },
 };
 /*
 # Проверка палиндрома (Python)

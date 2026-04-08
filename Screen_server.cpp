@@ -218,6 +218,23 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    while b:",
      L"        a, b = b, a % b",
      L"    return a" },
+
+     // Sweep Line (JS)
+    { L"function maxOverlap(intervals) {",
+     L"    let events = [];",
+     L"    for (let [l, r] of intervals) {",
+     L"        events.push([l, 1]);",
+     L"        events.push([r, -1]);",
+     L"    }",
+     L"    events.sort((a,b)=>a[0]-b[0]);",
+     L"",
+     L"    let cur = 0, max = 0;",
+     L"    for (let [_, val] of events) {",
+     L"        cur += val;",
+     L"        max = Math.max(max, cur);",
+     L"    }",
+     L"    return max;",
+     L"}" },
 };
 /*
 # Проверка палиндрома (Python)

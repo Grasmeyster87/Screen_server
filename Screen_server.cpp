@@ -176,6 +176,24 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
     L"        int x = pq.top(); pq.pop();",
     L"    }",
     L"}" },
+
+    // Topological Sort (JS)
+    { L"function topoSort(n, graph) {",
+     L"    let indeg = Array(n).fill(0);",
+     L"    for (let u of graph)",
+     L"        for (let v of u) indeg[v]++;",
+     L"",
+     L"    let q = [];",
+     L"    for (let i = 0; i < n; i++)",
+     L"        if (indeg[i] === 0) q.push(i);",
+     L"",
+     L"    while (q.length) {",
+     L"        let u = q.shift();",
+     L"        for (let v of graph[u]) {",
+     L"            if (--indeg[v] === 0) q.push(v);",
+     L"        }",
+     L"    }",
+     L"}" },
 };
 /*
 # Проверка палиндрома (Python)

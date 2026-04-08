@@ -166,6 +166,16 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    }",
      L"    return 0;",
      L"}" },
+
+     // Min Heap (C++)
+    { L"#include <queue>",
+    L"void heapExample() {",
+    L"    std::priority_queue<int, vector<int>, greater<int>> pq;",
+    L"    pq.push(5); pq.push(1); pq.push(10);",
+    L"    while (!pq.empty()) {",
+    L"        int x = pq.top(); pq.pop();",
+    L"    }",
+    L"}" },
 };
 /*
 # Проверка палиндрома (Python)

@@ -252,6 +252,24 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"            used[i] = False",
      L"    backtrack([], [False]*len(nums))",
      L"    return res" },
+
+     // Z-Algorithm (C++)
+    { L"vector<int> z_function(string s) {",
+      L"int n = s.size();",
+      L"vector<int> z(n);",
+      L"int l = 0, r = 0;",
+      L"for (int i = 1; i < n; i++) {",
+      L"    if (i <= r)",
+      L"        z[i] = min(r - i + 1, z[i - l]);",
+      L"    while (i + z[i] < n && s[z[i]] == s[i + z[i]])",
+      L"        z[i]++;",
+      L"    if (i + z[i] - 1 > r) {",
+      L"        l = i;",
+      L"        r = i + z[i] - 1;",
+      L"    }",
+      L" }",
+      L"return z;" },
+
 };
 /*
 # Проверка палиндрома (Python)

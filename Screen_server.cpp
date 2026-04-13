@@ -302,6 +302,38 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"    }",
       L"    return -1;",
       L"}"
+    },
+
+    // LRU Cache (C++)
+    { 
+     L"class LRUCache {",
+     L"    list<pair<int,int>> l;",
+     L"    unordered_map<int, list<pair<int,int>>::iterator> m;",
+     L"    int cap;",
+     L"public:",
+     L"    LRUCache(int capacity) : cap(capacity) {}",
+     L"",
+     L"    int get(int key) {",
+     L"        if (!m.count(key)) return -1;",
+     L"        auto it = m[key];",
+     L"        int val = it->second;",
+     L"        l.erase(it);",
+     L"        l.push_front({key, val});",
+     L"        m[key] = l.begin();",
+     L"        return val;",
+     L"    }",
+     L"",
+     L"    void put(int key, int value) {",
+     L"        if (m.count(key)) {",
+     L"            l.erase(m[key]);",
+     L"        } else if (l.size() == cap) {",
+     L"            m.erase(l.back().first);",
+     L"            l.pop_back();",
+     L"        }",
+     L"        l.push_front({key, value});",
+     L"        m[key] = l.begin();",
+     L"    }",
+     L"};"
     }
 };
 /*

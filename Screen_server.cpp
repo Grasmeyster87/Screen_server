@@ -279,6 +279,8 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"              if (dist[i][k] + dist[k][j] < dist[i][j])",
       L"                  dist[i][j] = dist[i][k] + dist[k][j];" }, 
 
+
+      // Rabin - Karp(хеширование строк)
     {
       L"function rabinKarp(text, pattern) {",
       L"    const base = 256, mod = 1e9+7;",
@@ -334,6 +336,17 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"        m[key] = l.begin();",
      L"    }",
      L"};"
+    },
+        // Fast Exponentiation (быстрое возведение в степень)
+    {
+      L"def fast_pow(a, n):",
+      L"    res = 1",
+      L"    while n:",
+      L"        if n & 1:",
+      L"            res *= a",
+      L"        a *= a",
+      L"        n >>= 1",
+      L"    return res"
     }
 };
 /*

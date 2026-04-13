@@ -270,6 +270,14 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L" }",
       L"return z;" },
 
+     // Floyd-Warshall (C++)
+    { L"void floydWarshall(vector<vector<int>>& dist) {",
+      L"  int n = dist.size();",
+      L"  for (int k = 0; k < n; k++)",
+      L"      for (int i = 0; i < n; i++)",
+      L"          for (int j = 0; j < n; j++)",
+      L"              if (dist[i][k] + dist[k][j] < dist[i][j])",
+      L"                  dist[i][j] = dist[i][k] + dist[k][j];" }, 
 };
 /*
 # Проверка палиндрома (Python)

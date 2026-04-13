@@ -337,7 +337,8 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
      L"    }",
      L"};"
     },
-        // Fast Exponentiation (быстрое возведение в степень)
+    
+    // Fast Exponentiation (быстрое возведение в степень)
     {
       L"def fast_pow(a, n):",
       L"    res = 1",
@@ -347,6 +348,44 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"        a *= a",
       L"        n >>= 1",
       L"    return res"
+    },
+
+    // Convex Hull (алгоритм Грэма)
+    {
+      L"struct Point {",
+      L"    int x, y;",
+      L"};",
+      L"",
+      L"int cross(Point O, Point A, Point B) {",
+      L"    return (A.x - O.x)*(B.y - O.y) - (A.y - O.y)*(B.x - O.x);",
+      L"}",
+      L"",
+      L"vector<Point> convexHull(vector<Point>& pts) {",
+      L"    sort(pts.begin(), pts.end(), [](Point a, Point b) {",
+      L"        return tie(a.x,a.y) < tie(b.x,b.y);",
+      L"    });",
+      L"",
+      L"    vector<Point> hull;",
+      L"",
+      L"    for (auto p : pts) {",
+      L"        while (hull.size() >= 2 &&",
+      L"               cross(hull[hull.size()-2], hull.back(), p) <= 0)",
+      L"            hull.pop_back();",
+      L"        hull.push_back(p);",
+      L"    }",
+      L"",
+      L"    int t = hull.size()+1;",
+      L"",
+      L"    for (int i = pts.size()-2; i >= 0; i--) {",
+      L"        while (hull.size() >= t &&",
+      L"               cross(hull[hull.size()-2], hull.back(), pts[i]) <= 0)",
+      L"            hull.pop_back();",
+      L"        hull.push_back(pts[i]);",
+      L"    }",
+      L"",
+      L"    hull.pop_back();",
+      L"    return hull;",
+      L"}"
     }
 };
 /*

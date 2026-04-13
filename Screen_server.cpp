@@ -278,6 +278,31 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"          for (int j = 0; j < n; j++)",
       L"              if (dist[i][k] + dist[k][j] < dist[i][j])",
       L"                  dist[i][j] = dist[i][k] + dist[k][j];" }, 
+
+    {
+      L"function rabinKarp(text, pattern) {",
+      L"    const base = 256, mod = 1e9+7;",
+      L"    let h = 0, p = 0, power = 1;",
+      L"",
+      L"    for (let i = 0; i < pattern.length; i++) {",
+      L"        p = (p * base + pattern.charCodeAt(i)) % mod;",
+      L"        h = (h * base + text.charCodeAt(i)) % mod;",
+      L"        if (i) power = (power * base) % mod;",
+      L"    }",
+      L"",
+      L"    for (let i = 0; i <= text.length - pattern.length; i++) {",
+      L"        if (h === p && text.substr(i, pattern.length) === pattern)",
+      L"            return i;",
+      L"",
+      L"        if (i < text.length - pattern.length) {",
+      L"            h = (h - text.charCodeAt(i) * power) % mod;",
+      L"            h = (h * base + text.charCodeAt(i + pattern.length)) % mod;",
+      L"            if (h < 0) h += mod;",
+      L"        }",
+      L"    }",
+      L"    return -1;",
+      L"}"
+    }
 };
 /*
 # Проверка палиндрома (Python)

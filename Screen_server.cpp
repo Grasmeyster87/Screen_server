@@ -402,6 +402,29 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"        if (is_prime[p]) primes.push_back(p);",
       L"    return primes;",
       L"}" },
+
+      // 🔹 A* Pathfinding (JS) — популярний алгоритм пошуку найкоротшого шляху, який часто використовується в іграх.
+    { L"function aStar(start, goal) {",
+      L"    let openSet = [start];",
+      L"    let cameFrom = new Map();",
+      L"    let gScore = new Map([[start, 0]]);",
+      L"    let fScore = new Map([[start, heuristic(start, goal)]]);",
+      L"",
+      L"    while (openSet.length > 0) {",
+      L"        let current = getLowestFScore(openSet, fScore);",
+      L"        if (current === goal) return reconstructPath(cameFrom, current);",
+      L"        openSet = openSet.filter(n => n !== current);",
+      L"        for (let neighbor of getNeighbors(current)) {",
+      L"            let tentativeG = gScore.get(current) + dist(current, neighbor);",
+      L"            if (tentativeG < (gScore.get(neighbor) || Infinity)) {",
+      L"                cameFrom.set(neighbor, current);",
+      L"                gScore.set(neighbor, tentativeG);",
+      L"                fScore.set(neighbor, tentativeG + heuristic(neighbor, goal));",
+      L"                if (!openSet.includes(neighbor)) openSet.push(neighbor);",
+      L"            }",
+      L"        }",
+      L"    }",
+      L"}" },
 };
 /*
 # Проверка палиндрома (Python)

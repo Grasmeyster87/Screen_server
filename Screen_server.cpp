@@ -439,6 +439,21 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"            else:",
       L"                L[i][j] = max(L[i-1][j], L[i][j-1])",
       L"    return L[m][n]" },
+
+      // 🔹 Bit Manipulation Hacks (C++)  — ефективні трюки з бітами (перевірка степеня двійки та підрахунок встановлених бітів).
+    { L"// Check if Power of Two",
+      L"bool isPowerOfTwo(int n) {",
+      L"    return n > 0 && (n & (n - 1)) == 0;",
+      L"}",
+      L"// Count Set Bits (Kernighan's Algorithm)",
+      L"int countSetBits(int n) {",
+      L"    int count = 0;",
+      L"    while (n > 0) {",
+      L"        n &= (n - 1);",
+      L"        count++;",
+      L"    }",
+      L"    return count;",
+      L"}" },
 };
 /*
 # Проверка палиндрома (Python)

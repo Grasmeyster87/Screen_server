@@ -386,7 +386,22 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"    hull.pop_back();",
       L"    return hull;",
       L"}"
-    }
+    },
+    // 🔹 Решето Ератосфена (C++)
+    { L"vector<int> sieve(int n) {",
+      L"    vector<bool> is_prime(n + 1, true);",
+      L"    is_prime[0] = is_prime[1] = false;",
+      L"    for (int p = 2; p * p <= n; p++) {",
+      L"        if (is_prime[p]) {",
+      L"            for (int i = p * p; i <= n; i += p)",
+      L"                is_prime[i] = false;",
+      L"        }",
+      L"    }",
+      L"    vector<int> primes;",
+      L"    for (int p = 2; p <= n; p++)",
+      L"        if (is_prime[p]) primes.push_back(p);",
+      L"    return primes;",
+      L"}" },
 };
 /*
 # Проверка палиндрома (Python)

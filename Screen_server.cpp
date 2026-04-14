@@ -387,7 +387,7 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"    return hull;",
       L"}"
     },
-    // 🔹 Решето Ератосфена (C++)
+    // 🔹 Решето Ератосфена (C++)  — класичний алгоритм для пошуку простих чисел.
     { L"vector<int> sieve(int n) {",
       L"    vector<bool> is_prime(n + 1, true);",
       L"    is_prime[0] = is_prime[1] = false;",
@@ -425,6 +425,20 @@ const std::vector<std::vector<std::wstring>> myCodeBlocks = {
       L"        }",
       L"    }",
       L"}" },
+
+      // 🔹 Longest Common Subsequence (Python)  — класична задача динамічного програмування.
+    { L"def lcs(X, Y):",
+      L"    m, n = len(X), len(Y)",
+      L"    L = [[0]*(n + 1) for i in range(m + 1)]",
+      L"    for i in range(m + 1):",
+      L"        for j in range(n + 1):",
+      L"            if i == 0 or j == 0:",
+      L"                L[i][j] = 0",
+      L"            elif X[i-1] == Y[j-1]:",
+      L"                L[i][j] = L[i-1][j-1] + 1",
+      L"            else:",
+      L"                L[i][j] = max(L[i-1][j], L[i][j-1])",
+      L"    return L[m][n]" },
 };
 /*
 # Проверка палиндрома (Python)
